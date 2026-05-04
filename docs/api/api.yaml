@@ -298,13 +298,14 @@ components:
 
     Article:
       required:
-        - profile
+        - author
         - body
         - createdAt
         - description
-        - isFavorited
+        - favorited
         - favoritesCount
         - slug
+        - tags
         - title
         - updatedAt
       type: object
@@ -324,16 +325,14 @@ components:
         createdAt:
           type: string
           format: date-time
-          x-usrv-cpp-type: userver::storages::postgres::TimePointTz
         updatedAt:
           type: string
           format: date-time
-          x-usrv-cpp-type: userver::storages::postgres::TimePointTz
-        isFavorited:
+        favorited:
           type: boolean
         favoritesCount:
           type: integer
-        profile:
+        author:
           $ref: '#/components/schemas/Profile'
       additionalProperties: false
 
